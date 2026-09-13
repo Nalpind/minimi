@@ -4,7 +4,7 @@ import { Suspense } from "react";
 import { Preload } from "@react-three/drei";
 
 function Model(props) {
-  const [body, head] = useGLTF(["/3D/Body.glb", "/3D/Head.glb"]);
+  const [body, head] = useGLTF([`{import.meta.env.BASE_URL}3D/Body.glb`, `{import.meta.env.BASE_URL}3D/Head.glb`]);
   return (
     <group>
       <primitive object={body.scene} {...props} />
