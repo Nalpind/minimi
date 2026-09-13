@@ -2,7 +2,7 @@ import { OrbitControls, useGLTF } from '@react-three/drei';
 import { useZStore } from '../store/useZStore';
 
 function Model(props) {
-  const [body, head] = useGLTF.preload(['/3D/Body.glb', '/3D/Head.glb'])
+  const [body, head] = useGLTF(['/3D/Body.glb', '/3D/Head.glb'])
 
   return (
     <group>
