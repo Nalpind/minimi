@@ -1,10 +1,9 @@
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import { useZStore } from "../store/useZStore";
 import { Suspense } from "react";
-import { Preload } from "@react-three/drei";
 
 function Model(props) {
-  const [body, head] = useGLTF([`{import.meta.env.BASE_URL}3D/Body.glb`, `{import.meta.env.BASE_URL}3D/Head.glb`]);
+  const [body, head] = useGLTF([`3D/Body.glb`, `3D/Head.glb`]);
   return (
     <group>
       <primitive object={body.scene} {...props} />
@@ -15,7 +14,7 @@ function Model(props) {
 
 export const Experience = () => {
   const { active } = useZStore();
-  useGLTF.preload(["/3D/Body.glb", "/3D/Head.glb"]);
+  useGLTF.preload([`3D/Body.glb`, `3D/Head.glb`]);
 
   return (
     <>
@@ -33,7 +32,6 @@ export const Experience = () => {
         </mesh>
       ) : (
         <Suspense>
-          <Preload all />
           <Model position={[0, -1, 0]} />
         </Suspense>
       )}
