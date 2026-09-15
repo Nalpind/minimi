@@ -1,116 +1,36 @@
-import { create } from 'zustand'
+import { create } from "zustand";
 
 export const useZStore = create((set, get) => ({
-    selectedAssets: {
-        hat: 'hat1',
-        hair: 'hair1',
-        eyes: 'eyes1',
-        mouth: 'mouth1',
-        brows: 'brows1',
-        nose: 'nose1',
-    },
+  selectedAssets: { hat: "hat1", hair: "hair1", eyes: "eyes1", mouth: "mouth1", brows: "brows1", nose: "nose1", top: "top1", bot: "bot1" },
 
-    active: 'hat',
+  active: "hat",
+  skinTone: "",
 
-    assetList: {
-        hat1: {
-            category: 'hat',
-            path: 'path/to/hat1.glb',
-            color: 'ffffff',
-        },
-        hat2: {
-            category: 'hat',
-            path: 'path/to/hat2.glb',
-            color: '0000ff',
-        },
-        hat3: {
-            category: 'hat',
-            path: 'path/to/hat1.glb',
-            color: 'ffffff',
-        },
-        hat4: {
-            category: 'hat',
-            path: 'path/to/hat2.glb',
-            color: '0000ff',
-        },
-        hat5: {
-            category: 'hat',
-            path: 'path/to/hat1.glb',
-            color: 'ffffff',
-        },
-        hat6: {
-            category: 'hat',
-            path: 'path/to/hat2.glb',
-            color: '0000ff',
-        },
-        hat7: {
-            category: 'hat',
-            path: 'path/to/hat1.glb',
-            color: 'ffffff',
-        },
-        hat8: {
-            category: 'hat',
-            path: 'path/to/hat2.glb',
-            color: '0000ff',
-        },
-        hair1: {
-            category: 'hair',
-            path: 'path/to/hair1.glb',
-            color: 'ff0000',
-        },
-        hair2: {
-            category: 'hair',
-            path: 'path/to/hair2.glb',
-            color: '00ff00',
-        },
-        eyes1: {
-            category: 'eyes',
-            path: 'path/to/eyes1.glb',
-            color: '000000',
-        },
-        eyes2: {
-            category: 'eyes',
-            path: 'path/to/eyes2.glb',
-            color: 'ffff00',
-        },
-        mouth1: {
-            category: 'mouth',
-            path: 'path/to/mouth1.gl',
-            color: 'ff00ff',
-        },
-        mouth2: {
-            category: 'mouth',
-            path: 'path/to/mouth2.glb',
-            color: '00ffff',
-        },
-        brows1: {
-            category: 'brows',
-            path: 'path/to/brows1.glb',
-            color: 'ffffff',
-        },
-        brows2: {
-            category: 'brows',
-            path: 'path/to/brows2.glb',
-            color: '000000',
-        },
-        nose1: {
-            category: 'nose',
-            hat: '',
-            path: 'path/to/nose1.glb',
-            color: 'ff0000',
-        },
-        nose2: {
-            category: 'nose',
-            path: 'path/to/nose2.glb',
-            color: '00ff00',
-        },
-    },
+  assetList: {
+    hat1: { category: "hat", path: 0, color: "", scale: "" },
+    hat3: { category: "hat", path: "", color: "", scale: "" },
+    hat4: { category: "hat", path: "", color: "", scale: "" },
+    hat5: { category: "hat", path: "", color: "", scale: "" },
+    hat6: { category: "hat", path: "", color: "", scale: "" },
+    hat7: { category: "hat", path: "", color: "", scale: "" },
+    hair1: { category: "hair", path: "", color: "" },
+    eyes1: { category: "eyes", path: "", color: "", scale: "", rotation: "", position: "" },
+    mouth1: { category: "mouth", path: "", color: "", scale: "", rotation: "", position: "" },
+    brows1: { category: "brows", path: "", color: "", scale: "", rotation: "", position: "" },
+    nose1: { category: "nose", path: "", color: "", scale: "", rotation: "", position: "" },
+    top1: { category: "top", path: "", color: "" },
+    hat2: { category: "hat", path: "", color: "", scale: "" },
+    hair2: { category: "hair", path: "", color: "" },
+    eyes2: { category: "eyes", path: "", color: "", scale: "", rotation: "", position: "" },
+    mouth2: { category: "mouth", path: "", color: "", scale: "", rotation: "", position: "" },
+    brows2: { category: "brows", path: "", color: "", scale: "", rotation: "", position: "" },
+    nose2: { category: "nose", path: "", color: "", scale: "", rotation: "", position: "" },
+    top2: { category: "top", path: "", color: "" },
+  },
 
-    setActiveTab: (tabName) => set({ active: tabName }),
+  setActiveTab: (tabName) => set({ active: tabName }),
 
-    equipItem: (category, assetId) => {
-        set((state) => ({
-            selectedAssets: { ...state.selectedAssets, [category]: assetId },
-        }))
-    },
-}))
+  equipItem: (category, assetId) => {
+    set((state) => ({ selectedAssets: { ...state.selectedAssets, [category]: assetId } }));
+  },
+}));
