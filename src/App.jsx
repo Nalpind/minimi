@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <div className="flex h-screen w-screen grow">
+      <div className="flex h-screen w-screen grow overflow-hidden">
         <Customizer />
       </div>
     </>
