@@ -1,5 +1,10 @@
 import { useZStore } from "../store/useZStore";
 export const Slider = () => {
+  const { selectedAssets, assetList, active } = useZStore(
+    (state) => state.selectedAssets,
+    (state) => state.assetList,
+    (state) => state.active,
+  );
   return (
     <>
       <div className="flex flex-row">

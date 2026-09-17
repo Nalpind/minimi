@@ -21,12 +21,8 @@ export const Experience = () => {
       <color attach="background" args={["#0f172a"]} />
       <ambientLight intensity={1.4} />
       <directionalLight position={[3, 4, 5]} intensity={2} />
-      <OrbitControls
-        enablePan={false}
-        maxPolarAngle={Math.PI * 0.9}
-        minPolarAngle={Math.PI * 0.2}
-      />
-      {active === "hat" ? (
+      <OrbitControls enablePan={false} maxPolarAngle={Math.PI * 0.9} minPolarAngle={Math.PI * 0.2} />
+      {active === "Hat" ? (
         <mesh>
           <boxGeometry args={[1, 1, 1]} />
         </mesh>
