@@ -12,10 +12,11 @@ export function Asset({ assetId }) {
   return (
     <>
       <button
-        className={`pointer-events-auto aspect-square rounded-lg 2xl:h-auto ${selectedAssets[active] === assetId ? "bg-slate-600" : "bg-slate-400"}`}
+        className={`active:animate-clicky hover:animate-hovery animate-hovery-rev pointer-events-auto z-10 aspect-square rounded-lg 2xl:h-auto ${selectedAssets[active] === assetId ? "bg-slate-600" : "bg-slate-400"}`}
         onClick={() => handleClick(active, assetId)}
       >
-        Bye
+        {assetId}
+        <div>{assetList[assetId]?.scale}</div>
       </button>
     </>
   );

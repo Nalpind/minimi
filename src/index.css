@@ -1,1 +1,35 @@
 @import "tailwindcss";
+
+@theme {
+  --animate-hovery: hovery 0.1s cubic-bezier(0.75, 0.25, 0.5, 1.25) both;
+  --animate-hovery-rev: hovery-rev 0.2s cubic-bezier(0.75, 0.25, 0.5, 1.25) both;
+  --animate-clicky: clicky 0.1s cubic-bezier(0.75, 0.25, 0.5, 1.25) both;
+
+  @keyframes hovery {
+    0% {
+      transform: scale(1);
+    }
+
+    100% {
+      transform: scale(1.05);
+    }
+  }
+  @keyframes hovery-rev {
+    0% {
+      transform: scale(1.05);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes clicky {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0.95);
+    }
+  }
+}
