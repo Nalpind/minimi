@@ -36,7 +36,7 @@ export const UI = () => {
             {Object.entries(assetList).map(([current]) => (active === assetList[current].category ? <Asset key={current} assetId={current} /> : ""))}
           </div>
         </div>
-        <div id="assetTabs" className="absolute -right-1/5 flex flex-row items-end justify-center gap-5 px-5 lg:h-full lg:w-1/5 lg:flex-col lg:items-start lg:px-0 lg:py-8">
+        <div id="assetTabs" className="absolute -top-1/4 flex h-1/4 w-full flex-row items-end justify-center gap-1 lg:top-auto lg:-right-1/5 lg:h-full lg:w-1/5 lg:flex-col lg:items-start lg:gap-5">
           {Object.entries(selectedAssets).map(([category]) => (
             <Tab key={category} name={category} />
           ))}
