@@ -7,82 +7,83 @@ export const Slider = () => {
   const setScale = useZStore((state) => state.setScale);
   const setColor = useZStore((state) => state.setColor);
   const setPosition = useZStore((state) => state.setPosition);
-  const setRotation = useZStore((state) => state.setRotation);
-
+  const setRotate = useZStore((state) => state.setRotate);
   const curAsset = useZStore((state) => state.assetList[selectedAssets[active]]);
 
   const handleScale = (event) => {
-    if (event.target.value) {
-      setScale(event.target.value, selectedAssets[active]);
-    }
+    setScale(Number(event.target.value), selectedAssets[active]);
   };
 
   const handleColor = (color) => {
     setColor(color, selectedAssets[active]);
   };
-  const handleRotation = (event) => {
-    if (event.target.value) {
-      setRotation(event.target.value, selectedAssets[active]);
-    }
+  const handleRotate = (event) => {
+    setRotate(Number(event.target.value), selectedAssets[active]);
   };
 
   const handlePosition = (event) => {
     if (event.target.value) {
       const axis = event.target.name;
-      setPosition({ ...curAsset.position, [axis]: event.target.value }, selectedAssets[active]);
+      setPosition({ ...curAsset.position, [axis]: Number(event.target.value) }, selectedAssets[active]);
     }
   };
 
   return (
     <>
-      <div className="flex flex-row">
-        <div className="flex w-2/3 flex-col">
-          <div>{selectedAssets[active]}</div>
-          <div>
-            {curAsset?.scale ? (
-              <div className="flex flex-row gap-1">
-                <div>Scale: </div>
-                <input type="range" id="scaler" label={"Scaler"} step="0.25" min="0.25" max="5" name="slider" value={curAsset.scale} onChange={handleScale} />
-                <input type="number" id="scale" label={"Scale"} name="scale" value={curAsset.scale} onChange={handleScale} />
-              </div>
-            ) : (
-              ""
-            )}
+      <div className="flex h-full w-full flex-col">
+        {selectedAssets[active]}
+        <div className="flex h-full w-full flex-row-reverse lg:flex-col">
+          <div className="colorPick h-full w-full">
+            <HexColorPicker color={curAsset.color} onChangeEnd={(color) => handleColor(color)} />
           </div>
-          <div>
-            {curAsset?.rotation != null ? (
-              <div>
-                <div>Rotation: </div>
-                <input type="range" id="rotater" label={"Rotater"} min="0" max="20" name="rotator" value={curAsset.rotation} onChange={handleRotation} />
-                <input type="number" id="rotation" label={"Rotation"} name="rotation" value={curAsset.rotation} onChange={handleRotation} />
-              </div>
-            ) : (
-              ""
-            )}
-          </div>
-          <div>
-            {curAsset?.position ? (
-              <div className="flex flex-col">
-                <div>Position: </div>
-                <label>
-                  x:
-                  <input type="range" id="a" label={"ss"} step="0.25" min="-5" max="5" name="x" value={curAsset.position.x} onChange={handlePosition} />
-                </label>
-                <label>
-                  y:
-                  <input type="range" id="b" label={"ss"} step="0.25" min="-5" max="5" name="y" value={curAsset.position.y} onChange={handlePosition} />
-                </label>
-                <label>
-                  z:
-                  <input type="range" id="c" label={"ss"} step="0.25" min="-5" max="5" name="z" value={curAsset.position.z} onChange={handlePosition} />
-                </label>
-              </div>
-            ) : (
-              ""
-            )}
+          <div className="flex flex-col gap-3 text-sm lg:flex-row">
+            <div>
+              {curAsset?.position && (
+                <div>
+                  <div>Position: </div>
+                  <div className="flex flex-row justify-between">
+                    <input type="range" id="x" step="0.25" min="-5" max="5" name="x" value={curAsset.position.x} onChange={handlePosition} />
+                    <div>x: </div>
+                    <input className="w-1/6 rounded-sm" type="number" id="xNum" label={"xNum"} name="x" value={curAsset.position.x} onChange={handlePosition} />
+                  </div>
+                  <div className="flex flex-row justify-between">
+                    <input type="range" id="y" step="0.25" min="-5" max="5" name="y" value={curAsset.position.y} onChange={handlePosition} />
+                    <div>y: </div>
+
+                    <input className="w-1/6 rounded-sm" type="number" id="yNum" label={"yNum"} name="y" value={curAsset.position.y} onChange={handlePosition} />
+                  </div>
+                  <div className="flex flex-row justify-between">
+                    <input type="range" id="z" step="0.25" min="-5" max="5" name="z" value={curAsset.position.z} onChange={handlePosition} />
+                    <div>z: </div>
+
+                    <input className="w-1/6 rounded-sm" type="number" id="zNum" label={"zNum"} name="z" value={curAsset.position.z} onChange={handlePosition} />
+                  </div>
+                </div>
+              )}
+            </div>
+            <div>
+              {curAsset?.scale && (
+                <div>
+                  Scale:
+                  <input className="w-1/6 rounded-sm" type="number" id="scale" label={"Scale"} name="scale" value={curAsset.scale} onChange={handleScale} />
+                  <div className="flex flex-row justify-between">
+                    <input type="range" id="scaler" label={"Scaler"} step="0.25" min="0.25" max="5" name="slider" value={curAsset.scale} onChange={handleScale} />
+                  </div>
+                </div>
+              )}
+
+              {curAsset?.rotate != null && (
+                <div>
+                  Rotate:
+                  <input className="w-1/6 rounded-sm" type="number" id="rotate" label={"Rotate"} name="rotate" value={curAsset.rotate} onChange={handleRotate} />
+                  <div className="flex flex-row justify-between">
+                    <input type="range" id="rotater" label={"Rotater"} min="-180" max="180" name="rotater" value={curAsset.rotate} onChange={handleRotate} />
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
-        {curAsset?.color ? <HexColorPicker color={curAsset.color} onChangeEnd={(color) => handleColor(color)} /> : ""}
       </div>
     </>
   );

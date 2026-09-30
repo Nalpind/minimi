@@ -17,14 +17,14 @@ export const useZStore = create((set) => ({
     Hat2: { category: "Hat", path: "/3D/category/asset.glb", color: "#fffff", scale: 1 },
     Hair1: { category: "Hair", path: "/3D/category/asset.glb", color: "#fffff" },
     Hair2: { category: "Hair", path: "/3D/category/asset.glb", color: "#fffff" },
-    Eyes1: { category: "Eyes", path: "/3D/category/asset.glb", color: "#fffff", scale: 1, rotation: 0, position: { x: 0, y: 0, z: 0 } },
-    Eyes2: { category: "Eyes", path: "/3D/category/asset.glb", color: "#fffff", scale: 1, rotation: 0, position: { x: 0, y: 0, z: 0 } },
-    Mouth1: { category: "Mouth", path: "/3D/category/asset.glb", color: "#fffff", scale: 1, rotation: 0, position: { x: 0, y: 0, z: 0 } },
-    Mouth2: { category: "Mouth", path: "/3D/category/asset.glb", color: "#fffff", scale: 1, rotation: 0, position: { x: 0, y: 0, z: 0 } },
-    Brows1: { category: "Brows", path: "/3D/category/asset.glb", color: "#fffff", scale: 1, rotation: 0, position: { x: 0, y: 0, z: 0 } },
-    Brows2: { category: "Brows", path: "/3D/category/asset.glb", color: "#fffff", scale: 1, rotation: 0, position: { x: 0, y: 0, z: 0 } },
-    Nose1: { category: "Nose", path: "/3D/category/asset.glb", color: "#fffff", scale: 1, rotation: 0, position: { x: 0, y: 0, z: 0 } },
-    Nose2: { category: "Nose", path: "/3D/category/asset.glb", color: "#fffff", scale: 1, rotation: 0, position: { x: 0, y: 0, z: 0 } },
+    Eyes1: { category: "Eyes", path: "/3D/category/asset.glb", color: "#fffff", scale: 1, rotate: 0, position: { x: 0, y: 0, z: 0 } },
+    Eyes2: { category: "Eyes", path: "/3D/category/asset.glb", color: "#fffff", scale: 1, rotate: 0, position: { x: 0, y: 0, z: 0 } },
+    Mouth1: { category: "Mouth", path: "/3D/category/asset.glb", color: "#fffff", scale: 1, rotate: 0, position: { x: 0, y: 0, z: 0 } },
+    Mouth2: { category: "Mouth", path: "/3D/category/asset.glb", color: "#fffff", scale: 1, rotate: 0, position: { x: 0, y: 0, z: 0 } },
+    Brows1: { category: "Brows", path: "/3D/category/asset.glb", color: "#fffff", scale: 1, rotate: 0, position: { x: 0, y: 0, z: 0 } },
+    Brows2: { category: "Brows", path: "/3D/category/asset.glb", color: "#fffff", scale: 1, rotate: 0, position: { x: 0, y: 0, z: 0 } },
+    Nose1: { category: "Nose", path: "/3D/category/asset.glb", color: "#fffff", scale: 1, rotate: 0, position: { x: 0, y: 0, z: 0 } },
+    Nose2: { category: "Nose", path: "/3D/category/asset.glb", color: "#fffff", scale: 1, rotate: 0, position: { x: 0, y: 0, z: 0 } },
     Top1: { category: "Top", path: "/3D/category/asset.glb", color: "#fffff" },
     Top2: { category: "Top", path: "/3D/category/asset.glb", color: "#fffff" },
     Bot1: { category: "Bot", path: "/3D/category/asset.glb", color: "#fffff" },
@@ -40,8 +40,8 @@ export const useZStore = create((set) => ({
   setColor: (newColor, assetId) => {
     set((state) => ({ assetList: { ...state.assetList, [assetId]: { ...state.assetList[assetId], color: newColor } } }));
   },
-  setRotation: (newRotation, assetId) => {
-    set((state) => ({ assetList: { ...state.assetList, [assetId]: { ...state.assetList[assetId], rotation: newRotation } } }));
+  setRotate: (newRotate, assetId) => {
+    set((state) => ({ assetList: { ...state.assetList, [assetId]: { ...state.assetList[assetId], rotate: newRotate } } }));
   },
   setPosition: ({ x: xVal, y: yVal, z: zVal }, assetId) => {
     set((state) => ({ assetList: { ...state.assetList, [assetId]: { ...state.assetList[assetId], position: { x: xVal, y: yVal, z: zVal } } } }));

@@ -16,12 +16,19 @@ export function Asset({ assetId }) {
         onClick={() => handleClick(active, assetId)}
       >
         {assetId}
-        <div className="flex flex-row">
-          <div>{assetList[assetId]?.scale}</div>
-          <div>{assetList[assetId]?.color}</div>
-          <div>{assetList[assetId]?.position?.x}</div>
-          <div>{assetList[assetId]?.position?.y}</div>
-          <div>{assetList[assetId]?.position?.z}</div>
+        <div className="flex flex-col text-xs">
+          <div>{assetList[assetId]?.scale ? <div>Scale: {assetList[assetId]?.scale}</div> : ""}</div>
+          <div>{assetList[assetId]?.color ? <div>Color: {assetList[assetId]?.color}</div> : ""}</div>
+          <div>{assetList[assetId]?.rotate != null ? <div>Rotate: {assetList[assetId]?.rotate}</div> : ""}</div>
+          <div>
+            {assetList[assetId]?.position ? (
+              <div>
+                Position: x: {assetList[assetId].position.x} y: {assetList[assetId].position.y} z: {assetList[assetId].position.z}{" "}
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
         </div>
       </button>
     </>

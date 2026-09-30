@@ -3,11 +3,11 @@ import * as React from "react";
 function EyesIcon(props) {
   return (
     <svg width={200} height={200} viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <circle cx={100} cy={100} r={78.5} stroke="#000" strokeWidth={5} />
+      <circle cx={100} cy={100} r={78.5} stroke="#000" strokeWidth={7} />
       <path
         d="M81 147.28c18.165 9.338 44.037 4.944 60-14.28M90 119c8.615 6.806 15.974 3.63 21 0M114 62c13.128-5.104 24.342-2.722 32 0M55 64c13.128 5.104 24.342 2.722 32 0"
         stroke="#000"
-        strokeWidth={5}
+        strokeWidth={7}
         strokeLinecap="round"
         strokeDasharray="8 8"
       />
