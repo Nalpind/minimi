@@ -38,7 +38,7 @@ export const Slider = () => {
           </div>
           <div className="flex flex-col gap-3 text-sm lg:flex-row">
             <div>
-              {curAsset?.position && (
+              {curAsset?.position != null && (
                 <div>
                   <div>Position: </div>
                   <div className="flex flex-row justify-between">
@@ -62,7 +62,7 @@ export const Slider = () => {
               )}
             </div>
             <div>
-              {curAsset?.scale && (
+              {curAsset?.scale != null && (
                 <div>
                   Scale:
                   <input className="w-1/6 rounded-sm" type="number" id="scale" label={"Scale"} name="scale" value={curAsset.scale} onChange={handleScale} />
