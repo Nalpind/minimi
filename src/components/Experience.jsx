@@ -3,11 +3,14 @@ import { useZStore } from "../store/useZStore";
 import { Suspense } from "react";
 
 function Model(props) {
+  const assetList = useZStore((state) => state.assetList);
+
   const [body, head] = useGLTF([`3D/Body.glb`, `3D/Head.glb`]);
+  const { nodes, materials } = useGLTF(`3D/Head.glb`);
+  materials.Skin.color.set(assetList.Hair1.color);
   return (
-    <group>
-      <primitive object={body.scene} {...props} />
-      <primitive object={head.scene} {...props} />
+    <group {...props}>
+      <mesh geometry={nodes.BaseHead.geometry} material={materials.Skin} />
     </group>
   );
 }
